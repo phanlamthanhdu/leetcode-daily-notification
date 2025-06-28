@@ -122,8 +122,8 @@ def send_daily_email():
     subject, body = get_leetcode_daily_problem()
     message = create_message("phanlamthanhdu@gmail.com", f"📌 LeetCode Daily: {subject}", body)
     send_message(service, "me", message)
-    # message = create_message("lamtngochan@gmail.com", f"📌 LeetCode Daily: {subject}", body)
-    # send_message(service, "me", message)
+    message = create_message("lamtngochan@gmail.com", f"📌 LeetCode Daily: {subject}", body)
+    send_message(service, "me", message)
 
 # Run it
 send_daily_email()
