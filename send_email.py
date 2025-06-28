@@ -9,6 +9,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from google.auth.transport.requests import Request
 
+from_email = 'yasuokid2003@gmail.com'
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
 def gmail_auth():
@@ -37,9 +38,8 @@ def create_message(to, subject, message_text):
     message = MIMEText(message_text, "plain")
     message['to'] = to
     message['subject'] = subject
-    message['from'] = f'LeetCode Daily Notifier <{to}>'
+    message['from'] = f'LeetCode Daily Notifier <{from_email}>'
     raw = base64.urlsafe_b64encode(message.as_bytes()).decode()
-    print(message)
     return {'raw': raw}
 
 def send_message(service, user_id, message):
