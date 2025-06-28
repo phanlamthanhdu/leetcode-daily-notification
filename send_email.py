@@ -37,7 +37,7 @@ def create_message(to, subject, message_text):
     message = MIMEText(message_text, "plain")
     message['to'] = to
     message['subject'] = subject
-    message['from'] = f'LeetCode Daily Notifier'
+    message['from'] = f'LeetCode Daily Notifier <{to}>'
     raw = base64.urlsafe_b64encode(message.as_bytes()).decode()
     return {'raw': raw}
 
@@ -111,7 +111,7 @@ def get_leetcode_daily_problem():
 🔗 Link: {link}
 
 📝 Problem Description:
-{content_text[:4000]}  # Gmail max size safeguard
+{content_text[:4000]}
 """
     return title, email_body
 
