@@ -37,6 +37,7 @@ def create_message(to, subject, message_text):
     message = MIMEText(message_text, "plain")
     message['to'] = to
     message['subject'] = subject
+    message['from'] = f'LeetCode Daily Notifier'
     raw = base64.urlsafe_b64encode(message.as_bytes()).decode()
     return {'raw': raw}
 
@@ -120,8 +121,8 @@ def send_daily_email():
     subject, body = get_leetcode_daily_problem()
     message = create_message("phanlamthanhdu@gmail.com", f"📌 LeetCode Daily: {subject}", body)
     send_message(service, "me", message)
-    message = create_message("lamtngochan@gmail.com", f"📌 LeetCode Daily: {subject}", body)
-    send_message(service, "me", message)
+    # message = create_message("lamtngochan@gmail.com", f"📌 LeetCode Daily: {subject}", body)
+    # send_message(service, "me", message)
 
 # Run it
 send_daily_email()
