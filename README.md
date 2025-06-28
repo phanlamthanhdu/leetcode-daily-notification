@@ -1,1 +1,1 @@
-# leetcode-daily-notification
+# leetcode-daily-sending
