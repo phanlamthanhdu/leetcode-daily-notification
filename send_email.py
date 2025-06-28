@@ -39,6 +39,7 @@ def create_message(to, subject, message_text):
     message['subject'] = subject
     message['from'] = f'LeetCode Daily Notifier <{to}>'
     raw = base64.urlsafe_b64encode(message.as_bytes()).decode()
+    print(message)
     return {'raw': raw}
 
 def send_message(service, user_id, message):
