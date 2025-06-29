@@ -2,7 +2,7 @@ name: LeetCode Daily Email
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # 6:16 PM Vietnam time
+    - cron: '0 3 * * *'
   workflow_dispatch:
 
 jobs:
